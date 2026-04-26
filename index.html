@@ -152,8 +152,9 @@
   .profile-page {
     position: relative;
     z-index: 1;
-    min-height: calc(100vh - 54px);
-    padding: 44px 0 48px;
+    min-height: min(760px, calc(100vh - 54px));
+    min-height: min(760px, calc(100svh - 54px));
+    padding: clamp(36px, 5vh, 64px) 0;
     border-bottom: 2px solid var(--ink);
     background: var(--paper);
     display: flex;
@@ -164,43 +165,62 @@
     display: block;
   }
 
+  .profile-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+    column-gap: clamp(40px, 6vw, 96px);
+    row-gap: 0;
+    align-items: start;
+  }
+
+  .profile-main > .label,
+  .profile-main h1,
+  .profile-lede {
+    grid-column: 1;
+  }
+
   .profile-main h1 {
-    margin: 24px 0 22px;
-    font-size: 78px;
+    margin: 22px 0 24px;
+    font-size: 92px;
     font-weight: 850;
-    line-height: 0.94;
+    line-height: 0.92;
     letter-spacing: 0;
   }
 
   .profile-lede {
-    max-width: 920px;
-    margin-bottom: 16px;
+    max-width: 760px;
+    margin-bottom: 0;
     color: var(--ink-2);
-    font-size: 19px;
+    font-size: 21px;
     line-height: 1.55;
   }
 
   .profile-copy {
+    grid-column: 2;
+    grid-row: 1 / span 3;
     display: grid;
-    gap: 10px;
-    max-width: 940px;
+    gap: 14px;
+    max-width: none;
+    padding-top: 14px;
+    border-top: 1px solid var(--line-strong);
   }
 
   .profile-copy p {
     margin: 0;
     color: var(--muted);
-    font-size: 14.5px;
-    line-height: 1.58;
+    font-size: 15px;
+    line-height: 1.68;
   }
 
   .profile-manifesto {
-    margin-top: 20px;
-    padding: 20px;
-    max-width: 940px;
+    grid-column: 1 / -1;
+    margin-top: 38px;
+    padding: 28px 34px;
+    max-width: none;
     background: var(--ink);
     color: #fff;
-    font-size: 24px;
-    line-height: 1.16;
+    font-size: 38px;
+    line-height: 1.08;
     font-weight: 800;
     letter-spacing: 0;
   }
@@ -827,6 +847,19 @@
 
   @media (max-width: 1180px) {
     .profile-page { align-items: flex-start; }
+    .profile-main { grid-template-columns: 1fr; }
+    .profile-main > .label,
+    .profile-main h1,
+    .profile-lede,
+    .profile-copy,
+    .profile-manifesto {
+      grid-column: 1;
+    }
+    .profile-copy {
+      grid-row: auto;
+      max-width: 880px;
+      margin-top: 26px;
+    }
     .profile-main h1 { font-size: 72px; }
     .hero h1 { font-size: 104px; }
     .summary-head,
@@ -885,6 +918,7 @@
     .profile-manifesto {
       font-size: 24px;
       padding: 20px;
+      margin-top: 28px;
     }
     .hero { padding: 58px 0 72px; }
     .hero h1 {
@@ -961,7 +995,7 @@
         <div class="label">AI Product Manager / About</div>
         <h1>
           AI 产品经理<br>
-          <span class="accent">把 AI 能力做进真实业务流</span>
+          <span class="accent">用 AI 重构产品工作的每一步</span>
         </h1>
         <p class="profile-lede">我是一名关注 AI 产品落地、用户体验和业务效率提升的产品经理。</p>
         <div class="profile-copy">
