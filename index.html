@@ -1,98 +1,1674 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>我的个人网站</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f7f7f7;
-      color: #222;
-      line-height: 1.6;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agent 产品项目集简历 · Four Project Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --paper: #fafaf7;
+    --paper-2: #f3f3ee;
+    --ink: #0a0a0a;
+    --ink-2: #20201d;
+    --muted: #686762;
+    --line: rgba(10,10,10,0.1);
+    --line-strong: rgba(10,10,10,0.22);
+    --accent: #ff4d1c;
+    --accent-dark: #cb3d15;
+    --green: #165f46;
+    --blue: #244d8f;
+    --max-w: 1440px;
+  }
 
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Archivo", "HarmonyOS Sans SC", "PingFang SC", "Hiragino Sans GB", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.58;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--accent); color: #fff; }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: linear-gradient(to right, rgba(10,10,10,0.026) 1px, transparent 1px);
+    background-size: calc(100vw / 12) 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    width: min(calc(100% - 48px), var(--max-w));
+    margin-inline: auto;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    border-bottom: 1px solid var(--line);
+    padding: 14px 0;
+    background: rgba(255,255,255,0.93);
+    backdrop-filter: blur(10px);
+    color: var(--muted);
+    font-family: "Space Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .topbar .container,
+  footer .container {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .brand { color: var(--ink); font-weight: 700; }
+
+  .nav-links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.18s ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus-visible {
+    color: var(--accent);
+  }
+
+  h1, h2, h3, h4, p { margin-top: 0; }
+  h1, h2, h3, h4, p, li, .card-title, .quote-text, .metric-note { overflow-wrap: anywhere; }
+
+  .label,
+  .chapter-kicker,
+  .metric-label,
+  .tag,
+  .pt-num,
+  .project-index,
+  .source-note {
+    font-family: "Space Mono", monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--accent);
+    font-size: 13px;
+  }
+
+  .label::before {
+    content: "";
+    width: 44px;
+    height: 1px;
+    background: currentColor;
+  }
+
+  .accent {
+    color: var(--accent);
+    display: inline-block;
+    position: relative;
+    isolation: isolate;
+    z-index: 0;
+  }
+
+  .accent::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.01em;
+    height: 0.16em;
+    background: var(--accent);
+    opacity: 0.1;
+    z-index: -1;
+  }
+
+  .profile-page {
+    position: relative;
+    z-index: 1;
+    min-height: calc(100vh - 54px);
+    padding: 44px 0 48px;
+    border-bottom: 2px solid var(--ink);
+    background: var(--paper);
+    display: flex;
+    align-items: center;
+  }
+
+  .profile-layout {
+    display: block;
+  }
+
+  .profile-main h1 {
+    margin: 24px 0 22px;
+    font-size: 78px;
+    font-weight: 850;
+    line-height: 0.94;
+    letter-spacing: 0;
+  }
+
+  .profile-lede {
+    max-width: 920px;
+    margin-bottom: 16px;
+    color: var(--ink-2);
+    font-size: 19px;
+    line-height: 1.55;
+  }
+
+  .profile-copy {
+    display: grid;
+    gap: 10px;
+    max-width: 940px;
+  }
+
+  .profile-copy p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14.5px;
+    line-height: 1.58;
+  }
+
+  .profile-manifesto {
+    margin-top: 20px;
+    padding: 20px;
+    max-width: 940px;
+    background: var(--ink);
+    color: #fff;
+    font-size: 24px;
+    line-height: 1.16;
+    font-weight: 800;
+    letter-spacing: 0;
+  }
+
+  .hero {
+    position: relative;
+    z-index: 1;
+    padding: 88px 0 118px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  section[id] { scroll-margin-top: 74px; }
+
+  .hero .label { margin-bottom: 42px; }
+
+  .hero h1 {
+    margin: 0;
+    font-size: 132px;
+    font-weight: 850;
+    line-height: 0.94;
+    letter-spacing: 0;
+  }
+
+  .sub {
+    max-width: 930px;
+    margin-top: 38px;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.75;
+  }
+
+  .hero-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    max-width: 1100px;
+    margin-top: 58px;
+  }
+
+  .metric {
+    min-height: 132px;
+    min-width: 0;
+    border: 1px solid var(--line-strong);
+    background: var(--bg);
+    padding: 18px 16px;
+  }
+
+  .metric-label {
+    margin-bottom: 10px;
+    color: var(--muted);
+    font-size: 11px;
+  }
+
+  .metric-value {
+    font-family: "Space Mono", monospace;
+    font-size: 52px;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .metric-note {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .summary {
+    position: relative;
+    z-index: 1;
+    padding: 84px 0 96px;
+    border-bottom: 1px solid var(--line-strong);
+    background: var(--paper);
+  }
+
+  .summary-head {
+    display: grid;
+    grid-template-columns: 0.72fr 1fr;
+    gap: 48px;
+    align-items: end;
+    margin-bottom: 44px;
+  }
+
+  .summary h2 {
+    margin: 18px 0 0;
+    font-size: 56px;
+    line-height: 1.02;
+    letter-spacing: 0;
+  }
+
+  .summary-intro {
+    margin: 0;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.78;
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--line-strong);
+    border-left: 1px solid var(--line-strong);
+  }
+
+  .project-card {
+    min-height: 420px;
+    padding: 24px;
+    border-right: 1px solid var(--line-strong);
+    border-bottom: 1px solid var(--line-strong);
+    background: rgba(255,255,255,0.72);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 28px;
+  }
+
+  .project-card.hot {
+    background: var(--ink);
+    color: #fff;
+  }
+
+  .project-card.hot p,
+  .project-card.hot .project-index,
+  .project-card.hot .list li { color: rgba(255,255,255,0.84); }
+
+  .project-index {
+    color: var(--accent);
+    font-size: 12px;
+    margin-bottom: 18px;
+  }
+
+  .project-card h3 {
+    margin-bottom: 16px;
+    font-size: 28px;
+    line-height: 1.08;
+    letter-spacing: 0;
+  }
+
+  .project-card p {
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  .project-stat {
+    border-top: 1px solid currentColor;
+    padding-top: 16px;
+    font-family: "Space Mono", monospace;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .chapter {
+    position: relative;
+    z-index: 1;
+    border-bottom: 1px solid var(--line-strong);
+    padding: 92px 0 106px;
+  }
+
+  .chapter.alt { background: var(--paper); }
+  .chapter.dark { background: var(--ink); color: #fff; }
+
+  .chapter.dark .chapter-num,
+  .chapter.dark .chapter-kicker,
+  .chapter.dark .pt-num,
+  .chapter.dark p,
+  .chapter.dark .muted,
+  .chapter.dark .list li { color: rgba(255,255,255,0.72); }
+
+  .chapter.dark .card,
+  .chapter.dark .compare,
+  .chapter.dark .funnel-stage,
+  .chapter.dark .table-wrap {
+    border-color: rgba(255,255,255,0.24);
+    background: rgba(255,255,255,0.06);
+  }
+
+  .chapter.dark .card.dark,
+  .chapter.dark .quote {
+    border: 1px solid rgba(255,255,255,0.28);
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+  }
+
+  .chapter.dark .card.dark p,
+  .chapter.dark .quote .quote-sub { color: rgba(255,255,255,0.72); }
+
+  .chapter.dark .compare.hot {
+    border-color: rgba(255,77,28,0.9);
+    background: rgba(255,77,28,0.1);
+    color: #fff;
+  }
+
+  .chapter.dark .compare.hot p,
+  .chapter.dark .compare.hot .list li { color: rgba(255,255,255,0.78); }
+
+  .chapter.dark .resume-list li {
+    border-left-color: var(--accent);
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.86);
+  }
+
+  .chapter.dark .resume-list li strong { color: #fff; }
+
+  .chapter .container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 48px;
+  }
+
+  .chapter-num {
+    position: sticky;
+    top: 74px;
+    align-self: start;
+    font-family: "Space Mono", monospace;
+    font-size: 180px;
+    font-weight: 700;
+    line-height: 0.85;
+    letter-spacing: 0;
+    transition: color 0.35s ease;
+  }
+
+  .chapter:hover .chapter-num { color: var(--accent); }
+
+  .chapter-body {
+    min-width: 0;
+    padding-top: 18px;
+  }
+
+  .chapter-kicker {
+    margin-bottom: 18px;
+    color: var(--accent);
+    font-size: 12px;
+  }
+
+  .chapter h2 {
+    max-width: 980px;
+    margin-bottom: 28px;
+    font-size: 56px;
+    line-height: 1.04;
+    letter-spacing: 0;
+  }
+
+  .lede {
+    max-width: 960px;
+    margin-bottom: 54px;
+    color: var(--muted);
+    font-size: 20px;
+    line-height: 1.78;
+  }
+
+  .points {
+    display: grid;
+    gap: 58px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .points > li {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 30px;
+    min-width: 0;
+  }
+
+  .pt-num {
+    padding-top: 8px;
+    color: var(--accent);
+    font-size: 12px;
+  }
+
+  .pt-body h3 {
+    margin-bottom: 18px;
+    font-size: 28px;
+    line-height: 1.18;
+    letter-spacing: 0;
+  }
+
+  .pt-body p {
+    max-width: 900px;
+    margin-bottom: 16px;
+    color: var(--ink-2);
+    font-size: 17px;
+  }
+
+  .muted { color: var(--muted); }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 28px;
+  }
+
+  .cards.two { grid-template-columns: repeat(2, 1fr); }
+  .cards.four { grid-template-columns: repeat(4, 1fr); }
+
+  .card {
+    min-width: 0;
+    min-height: 180px;
+    border: 1px solid var(--line-strong);
+    background: var(--bg);
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .card.dark,
+  .card.dark-card {
+    background: var(--ink);
+    color: #fff;
+  }
+
+  .card.dark p,
+  .card.dark .tag,
+  .card.dark-card p,
+  .card.dark-card .tag { color: rgba(255,255,255,0.82); }
+
+  .tag {
+    margin-bottom: 10px;
+    color: var(--accent);
+    font-size: 11px;
+  }
+
+  .card-title {
+    font-size: 26px;
+    font-weight: 750;
+    line-height: 1.08;
+    letter-spacing: 0;
+  }
+
+  .card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 28px;
+  }
+
+  .compare {
+    border: 1px solid var(--line-strong);
+    background: var(--bg);
+    padding: 24px;
+  }
+
+  .compare.hot {
+    border-color: var(--accent);
+    background: #fff3ee;
+  }
+
+  .compare h4 {
+    margin: 0 0 12px;
+    font-size: 28px;
+    line-height: 1.12;
+  }
+
+  .compare h3 {
+    margin: 0 0 12px;
+    font-size: 28px;
+    line-height: 1.12;
+    letter-spacing: 0;
+  }
+
+  .compare p { margin-bottom: 0; color: var(--muted); }
+
+  .list {
+    margin: 12px 0 0;
+    padding-left: 18px;
+  }
+
+  .list li {
+    margin-bottom: 10px;
+    color: var(--muted);
+  }
+
+  .flow {
+    display: flex;
+    align-items: stretch;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 26px;
+  }
+
+  .step {
+    border: 1px solid var(--line-strong);
+    background: var(--bg);
+    padding: 14px 16px;
+    font-weight: 700;
+  }
+
+  .arrow {
+    display: grid;
+    place-items: center;
+    min-width: 34px;
+    color: var(--accent);
+    font-family: "Space Mono", monospace;
+  }
+
+  .flow.steps-flow {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 8px;
+    align-items: stretch;
+  }
+
+  .flow-step {
+    min-width: 0;
+    min-height: 150px;
+    border: 1px solid var(--line-strong);
+    background: var(--bg);
+    padding: 18px;
+  }
+
+  .flow-num {
+    margin-bottom: 20px;
+    color: var(--accent);
+    font-family: "Space Mono", monospace;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .flow-title {
+    margin-bottom: 8px;
+    font-size: 19px;
+    line-height: 1.2;
+    font-weight: 800;
+  }
+
+  .flow-step p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.68;
+  }
+
+  .metric-xl {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 28px 0;
+    font-family: "Space Mono", monospace;
+  }
+
+  .metric-big {
+    font-size: 82px;
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: 0;
+  }
+
+  .accent-num { color: var(--accent); }
+  .metric-unit { color: var(--muted); font-size: 18px; }
+  .metric-arrow { color: var(--accent); font-size: 38px; }
+
+  .quote {
+    margin-top: 28px;
+    padding: 30px;
+    background: var(--ink);
+    color: #fff;
+  }
+
+  .quote-text {
+    max-width: 920px;
+    font-size: 38px;
+    line-height: 1.12;
+    letter-spacing: 0;
+    font-weight: 800;
+  }
+
+  .knowledge-loop {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 28px;
+  }
+
+  .knowledge-card {
+    min-width: 0;
+    min-height: 156px;
+    border: 1px solid var(--line-strong);
+    background: var(--bg);
+    padding: 18px;
+  }
+
+  .knowledge-kicker {
+    margin-bottom: 16px;
+    color: var(--accent);
+    font-family: "Space Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .knowledge-title {
+    margin-bottom: 8px;
+    font-size: 22px;
+    line-height: 1.16;
+    font-weight: 850;
+  }
+
+  .knowledge-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.62;
+  }
+
+  .quote-sub {
+    margin-top: 16px;
+    color: rgba(255,255,255,0.62);
+    font-family: "Space Mono", monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .table-wrap {
+    margin-top: 26px;
+    overflow-x: auto;
+    border: 1px solid var(--line-strong);
+    background: var(--bg);
+  }
+
+  table {
+    width: 100%;
+    min-width: 700px;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    border-bottom: 1px solid var(--line);
+    padding: 16px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    color: var(--accent);
+    font-family: "Space Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  td { color: var(--muted); }
+  tr:last-child td { border-bottom: 0; }
+
+  .funnel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 28px;
+  }
+
+  .funnel-stage {
+    border: 1px solid var(--line-strong);
+    background: var(--bg);
+    padding: 20px;
+    min-height: 210px;
+  }
+
+  .stage-name {
+    color: var(--accent);
+    font-family: "Space Mono", monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 28px;
+  }
+
+  .stage-question {
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1.14;
+    margin-bottom: 14px;
+  }
+
+  .stage-copy { color: var(--muted); font-size: 14px; }
+
+  .resume-list {
+    margin: 28px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 12px;
+  }
+
+  .resume-list li {
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    background: rgba(255,77,28,0.08);
+    color: var(--ink-2);
+  }
+
+  .source-note {
+    margin-top: 36px;
+    color: var(--muted);
+    font-size: 11px;
+  }
+
+  footer {
+    position: relative;
+    z-index: 1;
+    padding: 28px 0;
+    background: var(--ink);
+    color: rgba(255,255,255,0.7);
+    font-family: "Space Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .accent-dot { color: var(--accent); }
+
+  @media (max-width: 1180px) {
+    .profile-page { align-items: flex-start; }
+    .profile-main h1 { font-size: 72px; }
+    .hero h1 { font-size: 104px; }
+    .summary-head,
+    .chapter .container { grid-template-columns: 1fr; }
+    .chapter-num {
+      position: static;
+      font-size: 120px;
+    }
+    .project-grid,
+    .hero-metrics,
+    .cards.four,
+    .flow.steps-flow,
+    .knowledge-loop { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 820px) {
     .container {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 80px 24px;
+      width: calc(100% - 28px);
+      max-width: var(--max-w);
     }
-
-    .card {
-      background: white;
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    body { max-width: 100vw; overflow-x: hidden; }
+    * { min-width: 0; }
+    .container,
+    .summary-head,
+    .chapter-body,
+    .pt-body,
+    .project-grid,
+    .project-card,
+    .card,
+    .compare,
+    .funnel-stage { min-width: 0; }
+    .topbar .container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
     }
-
-    h1 {
-      font-size: 40px;
-      margin-bottom: 12px;
+    .topbar .container > div {
+      max-width: 100%;
+      overflow-wrap: anywhere;
+      word-break: normal;
     }
-
-    h2 {
-      margin-top: 36px;
+    .topbar .container > div:last-child { display: none; }
+    .nav-links { display: none; }
+    .topbar { position: static; }
+    .profile-page {
+      min-height: auto;
+      padding: 52px 0 64px;
+    }
+    .profile-main h1 {
+      font-size: 42px;
+      line-height: 1.04;
+      letter-spacing: 0;
+      word-break: break-word;
+    }
+    .profile-lede { font-size: 18px; }
+    .profile-manifesto {
       font-size: 24px;
+      padding: 20px;
     }
-
-    p {
-      font-size: 18px;
+    .hero { padding: 58px 0 72px; }
+    .hero h1 {
+      font-size: 46px;
+      line-height: 1.02;
+      letter-spacing: 0;
+      word-break: break-word;
     }
-
-    a {
-      color: #0969da;
-      text-decoration: none;
-      margin-right: 16px;
+    .hero h1 .accent { display: block; max-width: 100%; }
+    .summary h2,
+    .chapter h2 {
+      font-size: 34px;
+      line-height: 1.1;
+      word-break: break-word;
     }
-
-    a:hover {
-      text-decoration: underline;
+    .pt-body h3,
+    .project-card h3,
+    .card-title,
+    .compare h4,
+    .stage-question { word-break: break-word; }
+    p,
+    li,
+    .sub,
+    .summary-intro,
+    .metric-note,
+    .stage-copy,
+    .quote-sub {
+      overflow-wrap: anywhere;
+      word-break: normal;
     }
-
-    .tag {
-      display: inline-block;
-      background: #eef2ff;
-      padding: 6px 12px;
-      border-radius: 999px;
-      margin: 4px;
-      font-size: 14px;
-    }
-  </style>
+    .lede { font-size: 18px; margin-bottom: 36px; }
+    .hero-metrics,
+    .project-grid,
+    .cards,
+    .cards.two,
+    .cards.four,
+    .split,
+    .funnel,
+    .flow.steps-flow,
+    .knowledge-loop { grid-template-columns: 1fr; }
+    .chapter { padding: 64px 0 72px; }
+    .chapter-num { font-size: 88px; }
+    .points > li { grid-template-columns: 1fr; gap: 8px; }
+    .pt-num { padding-top: 0; }
+    .metric-value { font-size: 42px; }
+    .metric-big { font-size: 56px; }
+    .quote-text { font-size: 28px; }
+    .project-card { min-height: auto; }
+  }
+</style>
 </head>
 <body>
-  <main class="container">
-    <section class="card">
-      <h1>你好，我是你的名字</h1>
-      <p>
-        我正在建立自己的个人网站。这里会放我的介绍、项目、作品和联系方式。
-      </p>
 
-      <h2>关于我</h2>
-      <p>
-        我对技术、产品、设计和个人成长感兴趣。你可以在这里写你的职业背景、技能、兴趣或正在做的事情。
-      </p>
+  <div class="topbar">
+    <div class="container">
+      <div class="brand">Resume / AI Agent Product Portfolio</div>
+      <nav class="nav-links" aria-label="Page navigation">
+        <a href="#about">About</a>
+        <span>·</span>
+        <a href="#crc-copilot">CRC Copilot</a>
+        <span>·</span>
+        <a href="#business-agent">Business Agent</a>
+        <span>·</span>
+        <a href="#pm-agent">PM Agent</a>
+        <span>·</span>
+        <a href="#ops-strategy-agent">Ops Strategy Agent</a>
+      </nav>
+    </div>
+  </div>
 
-      <h2>我会什么</h2>
-      <div>
-        <span class="tag">产品</span>
-        <span class="tag">编程</span>
-        <span class="tag">设计</span>
-        <span class="tag">写作</span>
+  <section class="profile-page" id="about">
+    <div class="container profile-layout">
+      <div class="profile-main">
+        <div class="label">AI Product Manager / About</div>
+        <h1>
+          AI 产品经理<br>
+          <span class="accent">把 AI 能力做进真实业务流</span>
+        </h1>
+        <p class="profile-lede">我是一名关注 AI 产品落地、用户体验和业务效率提升的产品经理。</p>
+        <div class="profile-copy">
+          <p>相比于把 AI 当作一个“聊天入口”，我更关注大模型如何真正进入用户的工作流、协作流和决策流：理解真实业务场景，拆解用户任务链路，设计可执行的 Agent 能力边界，并通过数据和反馈持续优化产品效果。</p>
+          <p>在过往项目中，我主导或深度参与了多个 AI Agent 相关产品的 0-1 设计与落地，覆盖产研管理、组织协作、产品工作流治理和运营策略自动化等场景。</p>
+          <p>我的核心优势是能够把复杂业务流程抽象成清晰的产品结构，把 AI 能力转化为用户可理解、可使用、可信任的产品体验。</p>
+        </div>
+        <div class="profile-manifesto">好的 AI 产品，不应该停留在 Demo 里，而应该进入真实业务流，承担任务、连接系统、形成闭环。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="label">Interview Portfolio / AI Agent Product Work</div>
+      <h1>
+        把 AI Agent<br>
+        <span class="accent">做进真实业务流</span>
+      </h1>
+      <p class="sub">这份长页简历整理了四个 AI Agent 相关项目：CRC Copilot 聚焦产研管理数字化，业务管理 Agent 聚焦组织协作提效，PM Agent 聚焦 AI 产品工作流治理，运营目录策略 Agent 聚焦运营策略自动化。整体主线是把真实业务流程拆成可执行、可协作、可复盘的 Agent 产品系统。</p>
+    </div>
+  </section>
+
+  <section class="summary" id="summary">
+    <div class="container">
+      <div class="summary-head">
+        <div>
+          <div class="label">Executive Summary</div>
+          <h2>四个项目概览。</h2>
+        </div>
+        <p class="summary-intro">四个项目覆盖从内部产研管理、组织协作，到 Agent 产品工作流和运营策略自动化的不同场景。每个项目后续各占一页，展开背景问题、关键产品判断、系统设计方式和可量化结果。</p>
       </div>
 
-      <h2>项目</h2>
-      <p>
-        项目 1：简单介绍你的项目。<br />
-        项目 2：简单介绍你的作品、博客、App 或 GitHub 项目。
-      </p>
+      <div class="project-grid">
+        <article class="project-card">
+          <div>
+            <div class="project-index">Project 01 / Product Delivery System</div>
+            <h3>CRC Copilot 产研管理系统</h3>
+            <p>证明我能在研发资源有限时，把产研交付流程产品化，并独立 Vibe Coding 做出可用 MVP。</p>
+          </div>
+          <div>
+            <ul class="list">
+              <li>服务需求规划、评审、拆分、开发、测试、上线复盘。</li>
+              <li>把 5 个项目、453 个需求做成结构化状态流。</li>
+              <li>结果：需求延期率下降 17.5%。</li>
+            </ul>
+            <div class="project-stat">延期率 -17.5%</div>
+          </div>
+        </article>
 
-      <h2>联系我</h2>
-      <p>
-        <a href="https://github.com/你的用户名" target="_blank">GitHub</a>
-        <a href="mailto:你的邮箱@example.com">Email</a>
-      </p>
-    </section>
-  </main>
+        <article class="project-card hot">
+          <div>
+            <div class="project-index">Project 02 / Enterprise Agent Platform</div>
+            <h3>业务管理 Agent</h3>
+            <p>证明我能把组织管理协作场景做成企业级 Agent 平台，而不是停留在聊天问答。</p>
+          </div>
+          <div>
+            <ul class="list">
+              <li>Web + 钉钉多入口，覆盖部门全员和跨部门协作方。</li>
+              <li>Agent 承接查询、任务编排、进度追踪、风险提醒和周报。</li>
+              <li>结果：管理效率提升约 60%，周报 / 查询降到分钟级。</li>
+            </ul>
+            <div class="project-stat">效率 +60%</div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div>
+            <div class="project-index">Project 03 / PM Agent Runtime</div>
+            <h3>PM Agent 产品管理工作流系统</h3>
+            <p>证明我能设计 Agent 自身的产品工作流和治理机制，让长期 AI 协作可恢复、可审计。</p>
+          </div>
+          <div>
+            <ul class="list">
+              <li>Project / Workspace 双层信息架构。</li>
+              <li>status / route / review / next / resume 前门命令。</li>
+              <li>Observation 观察机制 + Debate 多 Agent 决策机制。</li>
+            </ul>
+            <div class="project-stat">174 tests</div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div>
+            <div class="project-index">Project 04 / Ops Strategy Agent</div>
+            <h3>运营目录策略 Agent</h3>
+            <p>证明我能把运营策略抽象成有人控边界的 Agent 决策闭环，让业务策略可执行、可复盘。</p>
+          </div>
+          <div>
+            <ul class="list">
+              <li>分析特定品类 2.4 万+ 资源数据，定位目录分发杠杆。</li>
+              <li>拆出换出、换入、调序三类 Agent 动作。</li>
+              <li>结果：运营处理效率验证提升约 900%。</li>
+            </ul>
+            <div class="project-stat">效率 +900%</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="crc-copilot">
+    <div class="container">
+      <div class="chapter-num">01</div>
+      <div class="chapter-body">
+        <div class="chapter-kicker">Project One / CRC Copilot</div>
+        <h2>把散落的产研管理，做成一套可追踪、可约束、可复盘的系统。</h2>
+        <p class="lede">CRC Copilot 的核心不是做一个“需求列表”，而是把产品、研发、测试、管理者之间的协作过程抽象为状态机、权限模型、看板与 Agent 分工。它回答两个问题：现在是什么情况，以及为什么会这样、接下来怎么办。</p>
+
+        <ul class="points">
+          <li>
+            <div class="pt-num">01.1</div>
+            <div class="pt-body">
+              <h3>先把产研协作的混乱边界拆清楚。</h3>
+              <p>原流程里，需求文档、开发任务、测试记录、延期原因和管理看板分散在不同系统，管理层很难实时判断项目健康度，一线同学也很难知道下一步该由谁推进。</p>
+              <div class="cards">
+                <div class="card">
+                  <div>
+                    <div class="tag">Pain Point</div>
+                    <div class="card-title">信息分散</div>
+                  </div>
+                  <p>需求、任务、日志、问答和周报不在同一套协作语境中。</p>
+                </div>
+                <div class="card">
+                  <div>
+                    <div class="tag">Pain Point</div>
+                    <div class="card-title">状态不清</div>
+                  </div>
+                  <p>需求从规划到上线缺少强约束流转，延期和评审原因不稳定沉淀。</p>
+                </div>
+                <div class="card dark">
+                  <div>
+                    <div class="tag">Product Goal</div>
+                    <div class="card-title">全流程可追溯</div>
+                  </div>
+                  <p>用系统规则替代口头约定，让过程数据可查、可看、可复盘。</p>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="pt-num">01.2</div>
+            <div class="pt-body">
+              <h3>产品架构：状态流 + RBAC + 看板 + Agent。</h3>
+              <p>系统围绕 PM、RD、QA、Admin 四类角色设计权限边界；把需求生命周期标准化为从初始化、方案中、待评审、已排评审、评审通过、已排期、研发中、测试中、验收完成到上线的状态路径。</p>
+              <div class="flow">
+                <span class="step">需求创建</span>
+                <span class="arrow">→</span>
+                <span class="step">评审排期</span>
+                <span class="arrow">→</span>
+                <span class="step">研发拆分</span>
+                <span class="arrow">→</span>
+                <span class="step">测试验收</span>
+                <span class="arrow">→</span>
+                <span class="step">上线复盘</span>
+              </div>
+              <div class="split">
+                <div class="compare">
+                  <div class="tag">Board</div>
+                  <h4>看板回答“现在是什么情况”</h4>
+                  <ul class="list">
+                    <li>需求状态、延期、阻塞、负责人、里程碑一屏可见。</li>
+                    <li>管理者可以快速定位高风险需求与高负载角色。</li>
+                  </ul>
+                </div>
+                <div class="compare hot">
+                  <div class="tag">Agent</div>
+                  <h4>Agent 回答“为什么、怎么办”</h4>
+                  <ul class="list">
+                    <li>用自然语言追问延期原因、瓶颈阶段、人员负载和优先级。</li>
+                    <li>输出调度建议、风险判断和周度总结。</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="pt-num">01.3</div>
+            <div class="pt-body">
+              <h3>Vibe Coding 0-1：从 PRD 到前后端、看板和部署验证。</h3>
+              <p>在研发资源受限的情况下，我用 Vibe Coding 独立完成 MVP 和多个核心模块落地，覆盖需求定义、信息架构、交互原型、Vue 前端、Go/Gin 后端、数据库字段、看板、部署与 SOP。</p>
+              <div class="cards four">
+                <div class="card">
+                  <div>
+                    <div class="tag">Core</div>
+                    <div class="card-title">需求管理</div>
+                  </div>
+                  <p>创建、编辑、状态流转、评审、延期原因、操作日志。</p>
+                </div>
+                <div class="card">
+                  <div>
+                    <div class="tag">Collab</div>
+                    <div class="card-title">待办 / 问答</div>
+                  </div>
+                  <p>把任务分派、问题指定、答案沉淀做成结构化协作资产。</p>
+                </div>
+                <div class="card">
+                  <div>
+                    <div class="tag">Insight</div>
+                    <div class="card-title">数据看板</div>
+                  </div>
+                  <p>需求趋势、延期分布、人员负载、里程碑进度可视化。</p>
+                </div>
+                <div class="card dark">
+                  <div>
+                    <div class="tag">Automation</div>
+                    <div class="card-title">智能周报</div>
+                  </div>
+                  <p>把部门周报、反馈、总结和问题追踪接入统一工作台。</p>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="pt-num">01.4</div>
+            <div class="pt-body">
+              <h3>结果：系统上线后开始承接真实产研管理。</h3>
+              <div class="metric-xl">
+                <span class="metric-big accent-num">5</span>
+                <span class="metric-unit">项目</span>
+                <span class="metric-arrow">/</span>
+                <span class="metric-big">453</span>
+                <span class="metric-unit">需求</span>
+                <span class="metric-arrow">/</span>
+                <span class="metric-big accent-num">17.5%</span>
+                <span class="metric-unit">延期率下降</span>
+              </div>
+              <div class="quote">
+                <div class="quote-text">这个项目证明了：PM 不只是写需求，也可以用 AI 把需求系统本身做出来。</div>
+                <div class="quote-sub">Product manager as system builder</div>
+              </div>
+              <ul class="resume-list">
+                <li><strong>CRC Copilot 产研管理系统：</strong>在研发资源受限背景下，基于大模型与 Vibe Coding 独立完成 AI 产研管理系统 MVP，覆盖需求定义、信息架构、交互原型、前后端模块、看板搭建与部署验证。</li>
+                <li><strong>产研流程抽象：</strong>梳理 PM / RD / QA / 管理层多角色工作流，将需求规划、评审、拆分、开发、测试、上线抽象为结构化状态流，并设计延期原因、评审结果、操作日志等强留痕机制。</li>
+                <li><strong>业务效果：</strong>系统上线后覆盖 5 个项目、453 个需求，支撑 15 个里程碑与 316 条日常迭代需求管理，需求延期率下降 17.5%。</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <div class="source-note">Evidence: 简历 PDF、CRC Copilot PRD、SOP、看板与 Agent 分工说明、智能周报/问答/待办功能文档。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter dark" id="business-agent">
+    <div class="container">
+      <div class="chapter-num">02</div>
+      <div class="chapter-body">
+        <div class="chapter-kicker">Project Two / Business Management Agent</div>
+        <h2>把组织协作从“人找信息”，改成 Agent 主动拉齐上下文。</h2>
+        <p class="lede">业务管理 Agent 是企业内部 AI Agent 组织协作平台。它不只是聊天机器人，而是由 LangGraph 智能体后端、Web 聊天前端、FastAPI 业务工具层、钉钉机器人、沙盒与 Skill 管理后台、Supervisor 巡检服务和运维控制台组成的多服务系统。</p>
+
+        <ul class="points">
+          <li>
+            <div class="pt-num">02.1</div>
+            <div class="pt-body">
+              <h3>问题不是缺一个入口，而是组织上下文太分散。</h3>
+              <p>项目管理里大量时间耗在跨系统查询、反复同步、周报整理、任务追踪和风险提醒。这个项目把“人-人同步协作”升级为“人-Agent-人”：Agent 负责搜集、编排和提醒，人负责判断和确认。</p>
+              <div class="cards">
+                <div class="card">
+                  <div>
+                    <div class="tag">Users</div>
+                    <div class="card-title">部门全员</div>
+                  </div>
+                  <p>覆盖产研测、算法、设计师、业务需求方和管理层。</p>
+                </div>
+                <div class="card">
+                  <div>
+                    <div class="tag">Entry</div>
+                    <div class="card-title">Web + 钉钉</div>
+                  </div>
+                  <p>同一套 Agent 能力接入 Web 聊天与企业 IM，降低使用门槛。</p>
+                </div>
+                <div class="card dark">
+                  <div>
+                    <div class="tag">Mode</div>
+                    <div class="card-title">人-Agent-人</div>
+                  </div>
+                  <p>信息整合、任务编排、进度追踪和风险提醒由 Agent 承接。</p>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="pt-num">02.2</div>
+            <div class="pt-body">
+              <h3>总体架构：多入口统一到 LangGraph Agent。</h3>
+              <p>Web 用户和钉钉用户进入同一套 LangGraph / deepagents 后端；Agent 通过 agent-hand 调用业务 API，通过沙盒维护用户记忆和 Skill，通过 Supervisor 做后台巡检，通过 ops-server 做多服务运维。</p>
+              <div class="funnel">
+                <div class="funnel-stage">
+                  <div class="stage-name">Client</div>
+                  <div class="stage-question">Web / DingTalk</div>
+                  <div class="stage-copy">自然语言查询、任务协作、报告生成、IM 推送。</div>
+                </div>
+                <div class="funnel-stage">
+                  <div class="stage-name">Agent Core</div>
+                  <div class="stage-question">LangGraph</div>
+                  <div class="stage-copy">Thread、Cron、Memory、Tool Calling、动态 Skill。</div>
+                </div>
+                <div class="funnel-stage">
+                  <div class="stage-name">Business Hand</div>
+                  <div class="stage-question">FastAPI</div>
+                  <div class="stage-copy">项目、需求、日志、待办、任务、RMS 等业务工具层。</div>
+                </div>
+                <div class="funnel-stage">
+                  <div class="stage-name">Ops Layer</div>
+                  <div class="stage-question">Admin / Supervisor</div>
+                  <div class="stage-copy">Skill 权限、记忆管理、巡检、通知、部署、日志。</div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="pt-num">02.3</div>
+            <div class="pt-body">
+              <h3>产品亮点：自然语言变成组织协作动作。</h3>
+              <p>用户可以用自然语言查询项目、需求、人员、待办、日志，生成项目分析、周报、总结和可视化结果；也可以创建父子任务、派发给多人、进入任务专属会话并沉淀结果。</p>
+              <div class="split">
+                <div class="compare">
+                  <div class="tag">Information</div>
+                  <h4>查询、解释、生成报告</h4>
+                  <ul class="list">
+                    <li>SQL 查询只允许 SELECT，减少 Agent 直接写库风险。</li>
+                    <li>支持项目分析、人员工作分析、周报、图表和总结。</li>
+                    <li>长期记忆与历史事件分层存储，避免上下文爆炸。</li>
+                  </ul>
+                </div>
+                <div class="compare hot">
+                  <div class="tag">Action</div>
+                  <h4>创建、派发、追踪任务</h4>
+                  <ul class="list">
+                    <li>自然语言创建父任务和多个子任务。</li>
+                    <li>任务绑定 LangGraph thread，执行人进入专属上下文。</li>
+                    <li>状态、结果、对话、通知和审计形成闭环。</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="pt-num">02.4</div>
+            <div class="pt-body">
+              <h3>工程亮点：动态 Skill、沙盒记忆和可运营后台。</h3>
+              <p>项目扩展了 deepagents 的 Skill 注入机制：每次 LLM 调用前扫描系统 Skill 和用户 Skill，根据角色权限动态过滤；沙盒保存用户记忆和工作区；管理后台支持 Skill 热管理、记忆编辑、运行监控和权限配置。</p>
+              <div class="cards">
+                <div class="card">
+                  <div>
+                    <div class="tag">Skill</div>
+                    <div class="card-title">动态注入</div>
+                  </div>
+                  <p>系统 / 用户 Skill 分层，角色级权限过滤，新增或编辑后即时生效。</p>
+                </div>
+                <div class="card">
+                  <div>
+                    <div class="tag">Memory</div>
+                    <div class="card-title">双层记忆</div>
+                  </div>
+                  <p>MEMORY 注入上下文，HISTORY 只追加并通过检索查询。</p>
+                </div>
+                <div class="card dark">
+                  <div>
+                    <div class="tag">Reliability</div>
+                    <div class="card-title">企业化封装</div>
+                  </div>
+                  <p>沙盒 TTL/LRU、Graph cache 失效、Cron 校验、通知去重、日志轮转。</p>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="pt-num">02.5</div>
+            <div class="pt-body">
+              <h3>结果：管理效率提升，查询和周报降到分钟级。</h3>
+              <div class="metric-xl">
+                <span class="metric-big accent-num">60%</span>
+                <span class="metric-unit">管理效率提升</span>
+                <span class="metric-arrow">→</span>
+                <span class="metric-big">分钟级</span>
+                <span class="metric-unit">周报 / 查询</span>
+              </div>
+              <div class="quote">
+                <div class="quote-text">这个项目的价值不是“问答更方便”，而是让 Agent 成为组织协作的中间层。</div>
+                <div class="quote-sub">Agent as coordination layer</div>
+              </div>
+              <ul class="resume-list">
+                <li><strong>业务管理 Agent：</strong>主导企业内部 AI Agent 组织协作平台 0-1 设计与迭代，探索“人-Agent-人”智能协作模式，由 Agent 承接信息整合、任务编排、进度追踪和风险提醒等重复工作。</li>
+                <li><strong>多入口 AI 助手：</strong>设计 Web + 钉钉多入口 AI 工作助手，支持自然语言查询项目、需求、人员、待办、日志，并自动生成项目分析、周报、总结和可视化结果。</li>
+                <li><strong>Agent 平台化能力：</strong>围绕 LangGraph / deepagents 构建多 Agent 后端、FastAPI 工具服务、沙盒化 Skill、动态权限、长期记忆、定时任务、Supervisor 巡检和运维控制台。</li>
+                <li><strong>上线效果：</strong>项目覆盖部门全员及跨部门协作方，管理层反馈整体管理效率提升约 60%，周报生成和项目数据查询耗时降低至分钟级。</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <div class="source-note">Evidence: 简历 PDF、crc_insight_poilot_agent README、项目深度解析与简历素材、agent-api / agent-hand / supervisor / sandbox-admin 文档。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter alt" id="pm-agent">
+    <div class="container">
+      <div class="chapter-num">03</div>
+      <div class="chapter-body">
+        <div class="chapter-kicker">Main Project / PM Agent Runtime</div>
+        <h2>把 AI 协作从聊天记录，改造成可恢复、可审计的产品工作流。</h2>
+        <p class="lede">PM Agent 是面向 Claude Code / Codex / Kiro 的 AI Agent 产品管理工作流系统。它不是 PRD 模板库，而是把需求澄清、调研、PRD、外部信号观察、多 Agent 辩论和交付导出，统一落到本地文件协议、状态机和 CLI 前门里。</p>
+        <ul class="points">
+          <li>
+            <div class="pt-num">03.1</div>
+            <div class="pt-body">
+              <h3>项目定位：Agent 操作系统里的产品管理层</h3>
+              <p class="muted">长期 AI 协作的难点不是“模型会不会写”，而是它不知道项目当前状态、哪些结论已经稳定、哪些只是临时讨论。PM Agent 用 `status / route / review / start / next / resume` 作为稳定前门，让外部 Agent 每次进入项目时先恢复状态，再继续推进。</p>
+              <div class="cards">
+                <div class="card">
+                  <div class="tag">Role</div>
+                  <div class="card-title">0-1 Owner</div>
+                  <p>主导产品架构、工作流设计、信息架构和 Vibe Coding 实现。</p>
+                </div>
+                <div class="card">
+                  <div class="tag">Agent Surface</div>
+                  <div class="card-title">Claude / Codex / Kiro</div>
+                  <p>围绕多种外部 Agent CLI 设计统一执行器和工作流入口。</p>
+                </div>
+                <div class="card dark-card">
+                  <div class="tag">Quality</div>
+                  <div class="card-title">174 passed</div>
+                  <p>pytest 覆盖 CLI、Observation、Debate、Hooks、Scheduler、Readiness 等模块。</p>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="pt-num">03.2</div>
+            <div class="pt-body">
+              <h3>产品架构：Project / Workspace 双层模型</h3>
+              <p class="muted">Project 存长期战略、决策、记忆和 observation policy；Workspace 存单轮需求、Requirement、Research、PRD、candidate updates、maintenance 和 debate artifacts。这样长期知识和本轮执行状态不会混在一起。</p>
+              <div class="split">
+                <div class="compare">
+                  <div class="tag">Project Layer</div>
+                  <h3>长期知识</h3>
+                  <ul class="list">
+                    <li>长期战略、背景资料、决策记录</li>
+                    <li>项目记忆与跨 workspace 可复用信息</li>
+                    <li>Observation policy / state 的项目级归属</li>
+                  </ul>
+                </div>
+                <div class="compare">
+                  <div class="tag">Workspace Layer</div>
+                  <h3>单轮交付</h3>
+                  <ul class="list">
+                    <li>Requirement、Research、PRD 与 testcase</li>
+                    <li>候选 observation updates 与 maintenance draft</li>
+                    <li>Debate round artifacts、synthesis 与 review 状态</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="pt-num">03.3</div>
+            <div class="pt-body">
+              <h3>工作流入口：让 Agent 不再猜下一步</h3>
+              <div class="flow steps-flow">
+                <div class="flow-step">
+                  <div class="flow-num">01</div>
+                  <div class="flow-title">status</div>
+                  <p>读取当前 workspace 状态、phase、pending decision 与 backlog。</p>
+                </div>
+                <div class="flow-step">
+                  <div class="flow-num">02</div>
+                  <div class="flow-title">route</div>
+                  <p>判断当前应该进入澄清、调研、PRD、维护或 review 面。</p>
+                </div>
+                <div class="flow-step">
+                  <div class="flow-num">03</div>
+                  <div class="flow-title">review</div>
+                  <p>打开当前最重要的候选评审、辩论评审或维护视图。</p>
+                </div>
+                <div class="flow-step">
+                  <div class="flow-num">04</div>
+                  <div class="flow-title">next</div>
+                  <p>输出下一步建议，降低多轮协作里的方向漂移。</p>
+                </div>
+                <div class="flow-step">
+                  <div class="flow-num">05</div>
+                  <div class="flow-title">resume</div>
+                  <p>跨会话恢复项目，明确继续点和可写边界。</p>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="pt-num">03.4</div>
+            <div class="pt-body">
+              <h3>Debate 机制：让重大产品判断先暴露张力</h3>
+              <p class="muted">Debate 是 PM Agent 的决策增强旁路。主 Agent 发起辩论，但不亲自下场；pmagent orchestrator 负责编排 defender / attacker / synthesizer、维护 session、落盘 round artifacts，并把 synthesis 通过 review / resolve 回流主流程。</p>
+              <div class="split">
+                <div class="compare">
+                  <div class="tag">Debate Flow</div>
+                  <h3>3 轮结构化对打</h3>
+                  <ul class="list">
+                    <li>Round 0：独立起手，避免被对方叙事框住</li>
+                    <li>Round 1：交锋反驳，攻击对方最弱假设</li>
+                    <li>Round 2：聚焦最无法调和的分歧点</li>
+                    <li>Synthesis：汇总收敛点、核心分歧、意外发现与下一步</li>
+                  </ul>
+                </div>
+                <div class="compare hot">
+                  <div class="tag">Governance</div>
+                  <h3>Side-channel，不直接改 PRD</h3>
+                  <p>辩论产物落在 `context/debates/`，属于 context artifact；它不直接修改 Requirement / PRD / decisions，而是先进入 review surface，由人类接受、拒绝或延后。</p>
+                </div>
+              </div>
+              <div class="quote">
+                <div class="quote-text">Debate 的价值不是“谁赢了”，而是让人类裁判看见哪些判断还没打穿。</div>
+                <div class="quote-sub">Convergence / Divergence / Unexpected Findings</div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="pt-num">03.5</div>
+            <div class="pt-body">
+              <h3>Observation 机制：把静态项目变成动态维护的项目知识库</h3>
+              <p class="muted">项目启动后，市场、竞品、用户反馈和技术生态会持续变化。Observation 的重点不是单次搜索，而是让 project-level knowledge 持续吸收外部信号，并通过评审和维护机制，把“项目资料夹”变成会更新、可追溯、可被 Agent 复用的动态知识库。</p>
+              <div class="knowledge-loop">
+                <div class="knowledge-card">
+                  <div class="knowledge-kicker">Static</div>
+                  <div class="knowledge-title">项目资料</div>
+                  <p>Requirement、PRD、决策、调研和背景信息原本只是静态文件。</p>
+                </div>
+                <div class="knowledge-card">
+                  <div class="knowledge-kicker">Signal</div>
+                  <div class="knowledge-title">外部变化</div>
+                  <p>Observation 持续把新市场信号转成可追踪 observation records。</p>
+                </div>
+                <div class="knowledge-card">
+                  <div class="knowledge-kicker">Curation</div>
+                  <div class="knowledge-title">评审筛选</div>
+                  <p>候选信号先被接受、拒绝或延后，避免噪声直接污染主线。</p>
+                </div>
+                <div class="knowledge-card">
+                  <div class="knowledge-kicker">Living KB</div>
+                  <div class="knowledge-title">动态知识库</div>
+                  <p>稳定结论回流项目记忆和维护草稿，让后续 Agent 接手时读到最新上下文。</p>
+                </div>
+              </div>
+              <div class="quote">
+                <div class="quote-text">Observation 的核心，是让项目知识库跟着外部世界一起变新。</div>
+                <div class="quote-sub">Static project files → Living project knowledge base</div>
+              </div>
+              <ul class="resume-list">
+                <li><strong>AI Agent 产品管理工作流系统：</strong>主导设计并落地面向 Claude Code / Codex / Kiro 的 PM Agent Runtime，覆盖需求澄清、调研、PRD、外部信号观察、候选变更评审、多 Agent 辩论和交付导出。</li>
+                <li><strong>产品架构与工作流抽象：</strong>设计 project / workspace 双层信息架构、phase 状态机、readiness gate，以及 status / route / review / start / next / resume 前门命令，将 AI Agent 产品协作过程转化为可恢复、可审计、可持续迭代的本地文件协议。</li>
+                <li><strong>Debate 决策机制：</strong>构建 defender / attacker / synthesizer 多 Agent 辩论闭环，通过 3 轮结构化对打、round artifacts、synthesis、review / resolve 和失败状态回流，让重大产品判断先暴露分歧与盲区。</li>
+                <li><strong>Observation 观察机制：</strong>构建项目知识维护闭环，通过 Agent-delegated 搜索、raw findings ingest、project-level observation log、workspace candidate review、accept / reject / snooze 和 maintenance draft，把静态项目资料升级为动态维护的知识库。</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <div class="source-note">Evidence: pmagent_resume_longpage.html、PM Agent 项目结构、现有项目长页内容。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="ops-strategy-agent">
+    <div class="container">
+      <div class="chapter-num">04</div>
+      <div class="chapter-body">
+        <div class="chapter-kicker">Project Four / Ops Directory Strategy Agent</div>
+        <h2>把目录运营从人工巡检，改造成 Agent 生成策略、运营确认、系统复盘。</h2>
+        <p class="lede">运营目录策略 Agent 面向移动端创意资源目录。它把“查数、诊断、选资源、调目录、看结果”的人工流程抽象为 Agent 可执行任务链，同时保留运营确认权，避免黑盒自动化直接改线上内容。</p>
+
+        <ul class="points">
+          <li>
+            <div class="pt-num">04.1</div>
+            <div class="pt-body">
+              <h3>目录是最强曝光杠杆，但人工覆盖已经到顶。</h3>
+              <p>FR/Music 数据显示，入目录资源只占 9.1%，却贡献 68.3% 导出，平均产出约为未入目录资源的 21.5 倍。问题是目录规模达到 7 品类 × 320 目录 × 9 语言，单语言全量处理就需要约 266 小时。</p>
+              <div class="metric-xl">
+                <span class="metric-big">24,191</span>
+                <span class="metric-unit">资源</span>
+                <span class="metric-arrow">→</span>
+                <span class="metric-big accent-num">21.5x</span>
+                <span class="metric-unit">目录生产力倍差</span>
+              </div>
+              <div class="cards">
+                <div class="card">
+                  <div>
+                    <div class="tag">Waste</div>
+                    <div class="card-title">603 条占坑</div>
+                  </div>
+                  <p>目录内 E 级零导出资源占坑不产出，浪费曝光位。</p>
+                </div>
+                <div class="card">
+                  <div>
+                    <div class="tag">Pool</div>
+                    <div class="card-title">22,298 条 E+N</div>
+                  </div>
+                  <p>沉底资源池规模大，其中部分低曝光资源已经证明有导出能力。</p>
+                </div>
+                <div class="card dark">
+                  <div>
+                    <div class="tag">Constraint</div>
+                    <div class="card-title">266 小时</div>
+                  </div>
+                  <p>人工无法覆盖全部目录和语言，必须转为系统化巡盘。</p>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="pt-num">04.2</div>
+            <div class="pt-body">
+              <h3>Agent 操作模型：换出、换入、调序。</h3>
+              <p>我将目录优化拆成三个动作：换出高曝光低导出或零导出占坑资源；从 E+N 池中筛选低曝光有潜力资源换入；针对未接入算法排序的目录，识别位置错配并生成调序方案。</p>
+              <div class="funnel">
+                <div class="funnel-stage">
+                  <div class="stage-name">Scan</div>
+                  <div class="stage-question">自动巡盘</div>
+                  <div class="stage-copy">读取 QT / BI / RMS 数据，生成目录健康度报告卡片。</div>
+                </div>
+                <div class="funnel-stage">
+                  <div class="stage-name">Recipe</div>
+                  <div class="stage-question">生成策略</div>
+                  <div class="stage-copy">换出、换入、调序，输出可审核的 Strategy Recipe。</div>
+                </div>
+                <div class="funnel-stage">
+                  <div class="stage-name">Confirm</div>
+                  <div class="stage-question">人工确认</div>
+                  <div class="stage-copy">运营锁定资源、微调候选、确认或拒绝方案。</div>
+                </div>
+                <div class="funnel-stage">
+                  <div class="stage-name">Review</div>
+                  <div class="stage-question">自动复盘</div>
+                  <div class="stage-copy">按 T+3 / T+7 / T+14 回收曝光导出数据并结算。</div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="pt-num">04.3</div>
+            <div class="pt-body">
+              <h3>关键产品判断：不是全自动替运营，而是让人和 Agent 走同一条配置链路。</h3>
+              <p>方案采用人机双通道：Agent 和运营都可以产出目录配置方案，统一通过 CLI / RMS API 执行，统一记录日期、方案来源、方案 ID 和配置内容，统一复盘评估效果。这样既能提效，也能保留运营信任和业务控制权。</p>
+              <div class="split">
+                <div class="compare">
+                  <div class="tag">Agent Channel</div>
+                  <h4>Agent 出方案</h4>
+                  <ul class="list">
+                    <li>自动识别低效目录和占坑资源。</li>
+                    <li>根据标签、品类、标题语义、曝光导出率筛选候选。</li>
+                    <li>生成换入换出和调序策略。</li>
+                  </ul>
+                </div>
+                <div class="compare hot">
+                  <div class="tag">Human Channel</div>
+                  <h4>运营保留裁决权</h4>
+                  <ul class="list">
+                    <li>确认、拒绝、锁定不可动资源。</li>
+                    <li>微调候选和位置，避免黑盒信任问题。</li>
+                    <li>人工方案也走同一套复盘标准。</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="pt-num">04.4</div>
+            <div class="pt-body">
+              <h3>结果：核心能力落地，运营处理效率提升约 900%。</h3>
+              <div class="quote">
+                <div class="quote-text">这个项目的本质，是把运营经验拆成可执行、可确认、可复盘的策略系统。</div>
+                <div class="quote-sub">From manual ops to strategy recipe</div>
+              </div>
+              <ul class="resume-list">
+                <li><strong>0-1 项目 Owner：</strong>作为项目 Owner 主导运营目录策略 Agent 从 0 到 1 建设，将目录运营中“查数、诊断、选资源、调目录、看结果”的人工流程抽象为 Agent 可执行任务链，设计自动巡盘、策略生成、人工确认、API 执行和自动复盘闭环。</li>
+                <li><strong>人机协同决策：</strong>设计人机协同型 Agent 决策机制，通过目录健康度评分识别低效目录，以高曝光低导出 / 零导出占坑资源为换出对象，以低曝光有潜力资源为换入对象，Agent 负责出方案，运营保留最终确认和调整权。</li>
+                <li><strong>数据分析建模：</strong>独立使用 Python 完成资源分发数据分析，基于特定品类 2.4 万+ 资源数据定位目录分发杠杆、头部流量浪费和沉底资源机会，识别入目录资源曝光导出率约为未入目录资源的 21.5 倍。</li>
+                <li><strong>反馈闭环设计：</strong>规划可配置 Skill 与反馈学习机制，将运营人工修改、采纳 / 拒绝原因和上线后效果回流为 Agent 经验数据，支持后续自动优化多语言区目录配置策略。</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <div class="source-note">Evidence: 简历 PDF、mobile-directory-ops-agent Requirement / PRD / 影响估算框架 / 6 个目录分析报告 / 领导对齐会议纪要。</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div>AI AGENT PRODUCT PORTFOLIO <span class="accent-dot">·</span> LONG PAGE RESUME</div>
+      <div>Generated from local project evidence</div>
+    </div>
+  </footer>
+
 </body>
 </html>
